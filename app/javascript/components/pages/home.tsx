@@ -1,9 +1,14 @@
 import React from "react";
-class Home extends React.Component implements Page {
-  title: string = 'Home';
-  render() {
-    return <div>hello world (components/pages/home.tsx)</div>
-  }
+import useFetch from "../../services/useFetch";
+import { Page } from "./Page";
+
+const Home = () => {
+  const url = '/users'
+  const { data } = useFetch(url)
+  return <Page>
+    <div>hello world (components/pages/home.tsx)</div>
+    <div>{JSON.stringify(data)}</div>
+  </Page>
 }
 
 export default Home
