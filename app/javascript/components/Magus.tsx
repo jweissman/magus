@@ -7,7 +7,7 @@ import { InMemoryCache } from 'apollo-cache-inmemory'
 import { App } from './App';
 import { HttpLink } from 'apollo-boost';
 
-const link = createHttpLink({ uri: 'http://localhost:3000/graphql' })
+// const link = createHttpLink({ uri: 'http://localhost:3000/graphql' })
 // const client = new ApolloClient({ link: link, cache: new InMemoryCache() })
 
 const railsCsrfToken = document
@@ -17,7 +17,7 @@ const railsCsrfToken = document
 const client = new ApolloClient({
   cache: new InMemoryCache(),
   link: new HttpLink({
-    uri: "http://localhost:3000/graphql",
+    uri: "/graphql",
     headers: {
       "X-CSRF-Token": railsCsrfToken,
     },

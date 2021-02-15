@@ -1,8 +1,8 @@
 import React from 'react'
-import './Page.scss'
-const Page = ({ children }) => <div className='Page'>
-  <div className='Container'>
-    {children}
-  </div>
-</div>
-export { Page }
+import { Page } from '@shopify/polaris'
+
+const SimplePage = ({ title, children }) => <Page title={title}>
+  {children}
+</Page>
+
+export { SimplePage as Page }
