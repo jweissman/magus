@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, FormLayout, Layout, Link, TextField } from "@shopify/polaris";
 import Page from "./Page";
 import Card from "../molecules/Card";
-import FrameList from "./FrameList";
+import FrameList from "../organisms/FrameList";
 
 const Home = () => {
   const [message, setMessage] = useState('')

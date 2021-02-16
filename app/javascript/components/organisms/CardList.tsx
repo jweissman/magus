@@ -1,17 +1,21 @@
 import React from 'react';
 import Card from "../molecules/Card";
 
-type CardRepresentation = {
-  title: string
-  body: React.ReactNode
-}
+// type CardRepresentation = {
+//   title: string
+//   render: React.ReactNode
+// }
 
-function CardList<T extends CardRepresentation>({ items }: {items: T[] }) {
-  return items.map(it =>
-    <Card.Basic title={it.title}>
-      {it.body}
+function CardList<T>({ items, title, render }: {
+  items: T[],
+  title: (it: T) => string,
+  render: (it: T) => React.ReactNode
+}) {
+  return <>{items.map(it =>
+    <Card.Basic title={title(it)}>
+      {render(it)}
     </Card.Basic>
-  )
+  )}</>
 }
 
 export { CardList }
