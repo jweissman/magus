@@ -15,12 +15,14 @@ on:
 
 jobs:
   test:
-
-    runs-on: macos-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         ruby-version: ['3.0']
-
+        node-version: ['12','14']
+        os:
+          - ubuntu-latest
+          - macos-latest
     steps:
     - uses: actions/checkout@v2
     
@@ -32,8 +34,10 @@ jobs:
     - name: Install Node
       uses: actions/setup-node@v2
       with:
-        node-version: '12'
-    - name: Node dependencies
+        node-version: ${{ matrix.node-version }}
+    - name: Check for cached JavaScript dependencies
+      uses: c-hive/gha-npm-cache@v1
+    - name: Install JavaScript dependencies
       run: npm install
     - name: Setup chromedriver
       uses: nanasess/setup-chromedriver@master
