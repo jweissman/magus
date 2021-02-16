@@ -47,24 +47,6 @@ function FrameList({ frames }: { frames: MuFrame[]; }) {
         </>}
       </Layout>}
     />
-    {frames.map(frame => <Card.Basic title={frame.name}>
-      <Layout>
-        <Layout.Section>
-          <Stack>
-            <Badge>Personal Frame</Badge>
-            <Badge>{frame.about}</Badge>
-          </Stack>
-        </Layout.Section>
-        {frame.streams && <>
-          {frame.streams.map(stream => <Layout.Section>
-            <h3>
-              <TextStyle variation="strong">{stream.name}</TextStyle>
-            </h3>
-            <TextContainer>{stream.messages.length} post(s)</TextContainer>
-          </Layout.Section>)}
-        </>}
-      </Layout>
-    </Card.Basic>)}
   </>;
 }
 
