@@ -37,6 +37,7 @@ group :development, :test do
   gem 'rspec-rails'
   gem "guard"
   gem "guard-rspec"
+  gem "graphiql-rails"
 end
 
 group :development do
@@ -62,6 +63,5 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem "graphql", "~> 1.9"
-gem 'graphiql-rails', group: :development
 
 gem "rexml", "~> 3.2"

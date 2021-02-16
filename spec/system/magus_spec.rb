@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe "Magus app", type: :system do
   before do
-    driven_by(:selenium_chrome_headless)
+    driven_by(:selenium_chrome)
   end
 
   describe 'home page' do
