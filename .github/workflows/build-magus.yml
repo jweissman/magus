@@ -12,14 +12,11 @@ on:
 jobs:
   
   test:
-    runs-on: ${{ matrix.os }}
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         ruby-version: ['3.0']
         node-version: ['12','14']
-        os:
-          - ubuntu-latest
-          - macos-latest
     steps:
     - uses: actions/checkout@v2
     
