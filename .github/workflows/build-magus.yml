@@ -96,17 +96,3 @@ jobs:
         RAILS_ENV: test
         POSTGRES_USER: postgres
         POSTGRES_PASSWORD: postgres
-
-  deploy:
-    needs: test
-    runs-on: macos-latest
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v2
-      - name: Deploy to Heroku
-        uses: akhileshns/heroku-deploy@v3.11.10 # This is the action
-        with:
-          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
-          heroku_app_name: "magus-io" #Must be unique in Heroku
-          heroku_email: "jweissman1986@gmail.com"
-
