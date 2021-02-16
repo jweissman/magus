@@ -23,7 +23,7 @@ RSpec.describe 'posting messages', type: :system do
       context 'given I enter a status update and press enter' do
         xit 'then I see a new status has been created' do
           visit '/'
-          expect(page).to have_content 'No posts yet'
+          expect(page).to have_content '0 post(s)'
           fill_in "How are you?", with: 'Great thx'
           click_button 'Post'
           expect(page).to have_content '1 post:'
