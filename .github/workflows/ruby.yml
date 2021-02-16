@@ -23,10 +23,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+    
     - name: Set up Ruby
       uses: ruby/setup-ruby@v1
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
+    - name: Set up Yarn
+      uses: borales/actions-yarn@v2.0.0
+      with:
+        cmd: install
     - name: Run tests
       run: bundle exec rake
