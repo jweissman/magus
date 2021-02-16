@@ -58,6 +58,7 @@ jobs:
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
     - name: Run tests
       run: bundle exec rake
+      continue-on-error: true
 
     - name: Archive screenshots
       uses: actions/upload-artifact@v2

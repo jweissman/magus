@@ -1,5 +1,5 @@
 require 'rails_helper'
-describe 'posting messages', type: :system do
+RSpec.describe 'posting messages', type: :system do
   before do
     driven_by(:selenium_chrome_headless)
   end
