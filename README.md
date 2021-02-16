@@ -1,7 +1,21 @@
 # Magus
 
-## adr
+codata-oriented social media system
 
-- We'll use GraphQL (+ Apollo) to serve as a middleware layer between the frontend and backend. https://www.agiliq.com/blog/2020/05/rails-graphql-and-react/ 
+## features
 
-- We'll use Polaris as a design system to try to keep things orderly -- it seems comprehensive and actively-maintained https://github.com/Shopify/polaris-react#using-the-react-components
+[ ] Messages
+  [ ] View messages
+  [ ] Create a new message
+
+[ ] Streams
+  [ ] Create a new stream
+  [ ] Add a message to the stream
+
+[ ] Frame
+  [ ] Create a new frame
+  [ ] Add a stream to the frame
+
+[ ] Space
+  [ ] Create a new space
+  [ ] Add a frame to the space

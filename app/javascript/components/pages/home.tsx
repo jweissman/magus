@@ -1,28 +1,37 @@
-import React from "react";
-import { Button, Card, FooterHelp, Layout, Link } from "@shopify/polaris";
-import { Page } from "./Page";
+import React, { useState } from "react";
+import { Button, FormLayout, Layout, Link, TextField } from "@shopify/polaris";
+import Page from "./Page";
+import Card from "../molecules/Card";
+import FrameList from "./FrameList";
 
-const Home = ({ frames }) => {
-  return <Page title='Magus | Home'>
+const Home = () => {
+  const [message, setMessage] = useState('')
+  return <Page.Simple title='Magus | Home'>
     <Layout>
       <Layout.Section>
-        {frames.map(frame => <Card title={frame.about} sectioned>
-          {frame.about}
-        </Card>)}
-        <Card sectioned>
-          <Button primary onClick={() => alert('Button clicked!')}>
+        <FrameList />
+        <Card.Basic title='New Message'>
+          <FormLayout>
+            <TextField
+              label="What are you up to?"
+              value={message}
+              onChange={setMessage}
+            />
+            <Button primary onClick={() => alert('Button clicked!')}>
+              Create a New Post
+            </Button>
+          </FormLayout>
+        </Card.Basic>
+      </Layout.Section>
+      {/* <Layout.Section>
+        <Card.Basic title='Frame Management'>
+          <Button onClick={() => alert('Button clicked!')}>
             Create a New Frame
           </Button>
-        </Card>
-      </Layout.Section>
-      <Layout.Section>
-        <FooterHelp>
-          For more details on Magus, visit our{' '}
-          <Link url="https://github.com/jweissman/magus">github repo</Link>.
-        </FooterHelp>
-      </Layout.Section>
+        </Card.Basic>
+      </Layout.Section> */}
     </Layout>
-  </Page>
+  </Page.Simple>
 }
 
 export default Home
