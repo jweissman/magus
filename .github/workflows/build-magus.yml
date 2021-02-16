@@ -1,11 +1,7 @@
-# This workflow uses actions that are not certified by GitHub.
-# They are provided by a third-party and are governed by
-# separate terms of service, privacy policy, and support
-# documentation.
-# This workflow will download a prebuilt Ruby version, install dependencies and run tests with Rake
-# For more information see: https://github.com/marketplace/actions/setup-ruby-jruby-and-truffleruby
+# This workflow implements a simple build + test verification of the Magus application.
+# This workflow will download a prebuilt Ruby and Node version, install dependencies and run tests
 
-name: Build Magus (Ruby)
+name: Build Magus
 
 on:
   push:
@@ -56,13 +52,7 @@ jobs:
 
     - name: Setup chromedriver
       uses: nanasess/setup-chromedriver@master
-      # with:
-        # Optional: do not specify to match Chrome's version
-        # chromedriver-version: '88.0.4324.96'
     
-    - name: rm bin/yarn
-      run: rm bin/yarn
-
     - name: Compile assets
       run: bundle exec rails assets:precompile
 
