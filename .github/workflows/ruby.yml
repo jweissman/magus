@@ -31,17 +31,19 @@ jobs:
       with:
         ruby-version: ${{ matrix.ruby-version }}
         bundler-cache: true
+
     - name: Install Node
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
 
-    - uses: actions/cache@v2
+    - name: Cache node modules
+      uses: actions/cache@v2
       with:
         path: '**/node_modules'
         key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
 
-    - name: Install packages
+    - name: Install JavaScript dependencies
       run: yarn install
 
     - name: Setup chromedriver
@@ -56,3 +58,15 @@ jobs:
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
     - name: Run tests
       run: bundle exec rake
+
+    - name: Archive screenshots
+      uses: actions/upload-artifact@v2
+      with:
+        name: screenshots
+        path: magus/tmp/screenshots/*.png
+
+    - name: Archive code coverage results
+      uses: actions/upload-artifact@v2
+      with:
+        name: code-coverage-report
+        path: magus/coverage/index.html
