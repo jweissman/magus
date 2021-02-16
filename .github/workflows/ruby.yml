@@ -35,8 +35,6 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: Check for cached JavaScript dependencies
-      uses: c-hive/gha-npm-cache@v1
     - name: Install JavaScript dependencies
       run: npm install
     - name: Setup chromedriver
