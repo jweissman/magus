@@ -51,6 +51,11 @@ jobs:
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install
 
+    - name: Setup PostgreSQL
+      uses: harmon758/postgresql-action@v1
+      with:
+        postgresql version: '11'  # See https://hub.docker.com/_/postgres for available versions
+
     - name: Setup chromedriver
       uses: nanasess/setup-chromedriver@master
     
@@ -70,5 +75,12 @@ jobs:
     needs: test
     runs-on: macos-latest
     steps:
-      - name: Heroku deploy
-        run: git push heroku master
+      - name: Check out repository
+        uses: actions/checkout@v2
+      - name: Deploy to Heroku
+        uses: akhileshns/heroku-deploy@v3.11.10 # This is the action
+        with:
+          heroku_api_key: ${{secrets.HEROKU_API_KEY}}
+          heroku_app_name: "magus-io" #Must be unique in Heroku
+          heroku_email: "jweissman1986@gmail.com"
+

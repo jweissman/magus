@@ -1,8 +1,8 @@
 example_id                                                 | status  | run_time        |
 ---------------------------------------------------------- | ------- | --------------- |
-./spec/models/message_spec.rb[1:1]                         | passed  | 0.00709 seconds |
-./spec/models/space_spec.rb[1:1]                           | passed  | 0.01433 seconds |
-./spec/models/stream_spec.rb[1:1]                          | passed  | 0.02765 seconds |
-./spec/system/features/posting_messages_spec.rb[1:1:1:1]   | passed  | 0.31662 seconds |
-./spec/system/features/posting_messages_spec.rb[1:1:1:2:1] | pending | 0.00002 seconds |
-./spec/system/magus_spec.rb[1:1:1]                         | passed  | 1.53 seconds    |
+./spec/models/message_spec.rb[1:1]                         | passed  | 0.01012 seconds |
+./spec/models/space_spec.rb[1:1]                           | passed  | 0.02385 seconds |
+./spec/models/stream_spec.rb[1:1]                          | passed  | 0.023 seconds   |
+./spec/system/features/posting_messages_spec.rb[1:1:1:1]   | passed  | 0.33763 seconds |
+./spec/system/features/posting_messages_spec.rb[1:1:1:2:1] | pending | 0.00003 seconds |
+./spec/system/magus_spec.rb[1:1:1]                         | passed  | 1.7 seconds     |
