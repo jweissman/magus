@@ -15,6 +15,7 @@ RSpec.describe 'posting messages', type: :system do
         hello = Message.create(content: 'hi', stream: status, user: tom)
         hello_again = Message.create(content: 'hi again', stream: status, user: tom)
         visit '/'
+        assert page.has_content? 'Magus', wait: 10
         expect(page).to have_content '_status'
         expect(page).to have_content '2 post(s)'
       end
