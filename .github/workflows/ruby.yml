@@ -72,10 +72,10 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: screenshots
-        path: magus/tmp/screenshots/*.png
+        path: tmp/screenshots/*.png
 
     - name: Archive code coverage results
       uses: actions/upload-artifact@v2
       with:
         name: code-coverage-report
-        path: magus/coverage/index.html
+        path: coverage/index.html
