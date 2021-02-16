@@ -35,11 +35,13 @@ jobs:
         node-version: '12'
     - name: Node dependencies
       run: npm install
-    - uses: nanasess/setup-chromedriver@master
+    - name: Setup chromedriver
+      uses: nanasess/setup-chromedriver@master
       with:
         # Optional: do not specify to match Chrome's version
         chromedriver-version: '88.0.4324.96'
-    - run: |
+    - name: Start chromedriver
+      run: |
         export DISPLAY=:99
         chromedriver --url-base=/wd/hub &
         sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
