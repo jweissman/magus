@@ -13,6 +13,21 @@ jobs:
   
   test:
     runs-on: ubuntu-latest
+    # Service containers to run with `container-job`
+    services:
+      # Label used to access the service container
+      postgres:
+        # Docker Hub image
+        image: postgres
+        # Provide the password for postgres
+        # env:
+          # POSTGRES_PASSWORD: postgres
+        # Set health checks to wait until postgres has started
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
     steps:
     - uses: actions/checkout@v2
@@ -45,10 +60,12 @@ jobs:
       if: steps.yarn-cache.outputs.cache-hit != 'true'
       run: yarn install
 
-    - name: Setup PostgreSQL
-      uses: harmon758/postgresql-action@v1
-      with:
-        postgresql version: '11'  # See https://hub.docker.com/_/postgres for available versions
+    # - name: Setup PostgreSQL
+    #   uses: harmon758/postgresql-action@v1
+    #   with:
+    #     postgresql version: '11'  # See https://hub.docker.com/_/postgres for available versions
+    #     postgresql db: 'magus_test'
+
 
     - name: Setup chromedriver
       uses: nanasess/setup-chromedriver@master
