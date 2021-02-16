@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+superuser = User.create(name: 'root')
+
+# okay, this is all really _sample_ data
 luke = User.create(name: 'Luke', image_url: 'https://upload.wikimedia.org/wikipedia/en/9/9b/Luke_Skywalker.png')
 
 

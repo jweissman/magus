@@ -10,6 +10,7 @@ on:
     branches: [ master ]
 
 jobs:
+  
   test:
     runs-on: ${{ matrix.os }}
     strategy:
@@ -64,3 +65,10 @@ jobs:
 
     - name: Run tests
       run: bundle exec rake
+
+  deploy:
+    needs: test
+    runs-on: macos-latest
+    steps:
+      - name: Heroku deploy
+        run: git push heroku master
